@@ -137,7 +137,7 @@ The following sections will walk you through code snippets for developing AR app
 'TO_ADD' marks the line/block of code that needs to be added.
 
 
-## Placing Your Game Board (Manual Mode):
+## Placing Your Game Board:
 
 Go to GameObject -> 3D Object -> Cube and name your new cube, “Game Board”. Lets change this into more of a game board shape. Select the Game Board and in the inspector set the scale x,y and z values to 0.6, 0.02, and 0.6 respectively. Unity is set up such that the values of 1 unit in game coordinates corresponds to 1 meter in physical coordinates. Since the cube model is a 1 unit cube, these scale parameters correspond to a game board that is 60cm width and height with a 2cm thickness. 
 
@@ -262,11 +262,6 @@ To change this, in your button inspector, scroll down to the field labeled “On
 ![image3.png](/Instructions/image3.png)
 
 Lastly let’s change the button label to something more intuitive than “Button”. Expand your Button object in the scene hierarchy and select the Text object that appears below it. Change the text field under “Text (Script)” in the inspector to “Move Board”. Build and Run to see your changes. 
-
-
-
-## Placing Your Game Board using image tracking (Automatic Mode):
-In this section, we will learn how to track images in a physical scene and use that for placing the gameboard.
 
 
 ## Making A Simple Interactable Object
@@ -492,6 +487,8 @@ Build and run your game. After placing your game board you should now be able to
 
 
 
+## (NEW) Adding physically tracked virtual objects into the scene:
+In this section, we will learn how to track images in a physical scene and use that for controlling virtual elements in the scene. To do this, we will leverage ARFoundation's image tracking ability.
 
 
 
