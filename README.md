@@ -6,7 +6,7 @@ Note that just like in HW2, your game must have an end condition and indicate to
 
 ## Logistics
 
-Create and name a new private repo nad name the repo as cs294-137-hw3-YourGitID
+Create and name a new private repo and name the repo as cs294-137-hw3-YourGitID
 ### Deadline
 
 HW2 is due xxxday xx/xx/xxxx, 11:59PM. Both your code and video need to be turned in for your submission to be complete; HWs which are turned in after 11:59pm will use one of your slip days -- there are no slip minutes or slip hours.
