@@ -487,6 +487,23 @@ Build and run your game. After placing your game board you should now be able to
 
 
 
+
+## Using your game from HW2:
+
+
+First copy your HW2 code to a new repository.
+
+Make sure to complete the steps in the setting up your project section (of this Readme)
+
+Delete "Miniworld_FloorPlan229_physics" gameobject from the scene (we no longer require this simulated environment), and delete the folders - "ARFoundationSim" and ":"SimEnvironments".  
+
+Delete the "ARCamera" GameObject and Follow the steps outlined in this readme. When making changes to your HW2 code, you may use 'TO_COMMENT' and 'TO_ADD' tags to see what functiones need ot be changed.
+
+The image below indicated the stuffs that need to be deleted from your project.
+
+![image16.PNG](/Instructions/image16.PNG)
+
+
 ## (NEW) Adding physically tracked virtual objects into the scene:
 In this section, we will learn how to track images in a physical scene and use that for controlling virtual elements in the scene. To do this, we will leverage ARFoundation's image tracking ability. 
 
@@ -592,22 +609,11 @@ using UnityEngine.XR.ARFoundation;
 
 ```
 
+In this HW, you will need to use these tracked images to add to the gameplay of games that you developed in HW2. We look for creative game interaction designs by which you will use these tracked images to add to the experience of your game and make it more enjoyable. Try to think of ways in which these tracked images can intercat with the different elements in your game. A couple of examples, include:
 
+- In a pokemon game you may track images of pokemon (cards). When a player pushes a pokemon card into the view of the camera, the corresponding pokemon would be spawned into the scene over the card. This will activate the fire arena (Charizard is a fire type pokemon). E.g. - https://www.youtube.com/watch?v=3ziNTo-BCT0&ab_channel=Fyone 
 
-## Using your game from HW2:
+- In a battle game, you may track images of a sword. When a player brings in the image of a sword into the scene, a virtual sword will spawn at the location of the image. The player can use the virtual sword to attack virtual enemies or virtual objects in the scene. 
 
-
-First copy your HW2 code to a new repository.
-
-Make sure to complete the steps in the setting up your project section (of this Readme)
-
-Delete "Miniworld_FloorPlan229_physics" gameobject from the scene (we no longer require this simulated environment), and delete the folders - "ARFoundationSim" and ":"SimEnvironments".  
-
-Delete the "ARCamera" GameObject and Follow the steps outlined in this readme. When making changes to your HW2 code, you may use 'TO_COMMENT' and 'TO_ADD' tags to see what functiones need ot be changed.
-
-The image below indicated the stuffs that need to be deleted from your project.
-
-![image16.PNG](/Instructions/image16.PNG)
-
-
+VERY IMPORTANT: In all these interactions, design your on-screen and tracked object interactions keeping in mind that the player will have to use one hand to hold the mobile and see the scene. So, only one hand might be free to interact using tracked objects. It important to ensure that these interactions are feasible, ergonomic and enjoyable.
 
