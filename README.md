@@ -488,7 +488,24 @@ Build and run your game. After placing your game board you should now be able to
 
 
 ## (NEW) Adding physically tracked virtual objects into the scene:
-In this section, we will learn how to track images in a physical scene and use that for controlling virtual elements in the scene. To do this, we will leverage ARFoundation's image tracking ability.
+In this section, we will learn how to track images in a physical scene and use that for controlling virtual elements in the scene. To do this, we will leverage ARFoundation's image tracking ability. 
+
+First we will setup the image that we need AR kit to track. 
+
+We will add all image(s) we want our AR applicaiton to track. We will first add images to the project. In the project window right click -> Import new assets. Now add all the images that you want to track.
+
+In the project window, right click -> Create -> XR -> ReferenceImageLibrary
+
+![image17.PNG](/Instructions/image17.PNG)
+
+Now select the Reference Image Library and in the inspector, use 'Add Image' to add an image that you would like to track. Select the texture and choose the image(s) that you imported.
+
+Next check 'specify size' and key in the physical size of your printed image. Note that, aspect ratio is determined based on the texture dimensions. So make sure to type in the physical measurements on the printout that corresponds to the image you uploaded. Note: cropping any unneccssary white borders on the uploaded image could help you get this right.
+
+![image18.PNG](/Instructions/image18.PNG)
+
+
+
 
 
 
