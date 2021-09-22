@@ -508,7 +508,7 @@ Now select the AR session Origin Game Object, and through the inspector, Add 'AR
 
 ![image19.PNG](/Instructions/image19.PNG)
 
-Now we will need a script that will help us figure out which images are currently being tracked in the scene. Below is a template script that needs to be attached to the 'AR session Origin' game object.  Note that this is only a template script, and you need to modify this to suit the needs of your game. 
+Now we will need a script that will help us figure out which images are currently being tracked in the scene. Below is a template script that needs to be attached to the 'AR session Origin' game object.  Note that this is only a template script, and we use it to attach cubes to every uniquely tracked images. You  will certainly need to modify this to suit the needs of your game. 
 
 ```C++
 using System;
@@ -518,15 +518,17 @@ using UnityEngine.UI;
 using UnityEngine.XR.ARSubsystems;
 using UnityEngine.XR.ARFoundation;
 
-    /// This component listens for images detected by the <c>XRImageTrackingSubsystem</c>
-    /// and overlays a cube on each of the tracked image
-    /// </summary>
+    // This component listens for images detected by the <c>XRImageTrackingSubsystem</c>
+    // and overlays a cube on each of the tracked image
+    // Note that this code assumes that all tracked images are unique and named differently
+    
     [RequireComponent(typeof(ARTrackedImageManager))]
     public class TrackedImageInfoManager : MonoBehaviour
     {
         
 
         ARTrackedImageManager m_TrackedImageManager;
+        Dictionary<string,GameObject> gameobjectDict = new Dictionary<string,GameObject>
 
         void Awake()
         {
@@ -558,19 +560,32 @@ using UnityEngine.XR.ARFoundation;
                 //trackedImage.transform.position -> Position of the tracked image in the real world 
                 //trackedImage.transform.rotation -> Rotation of the tracked image in the real world 
 
+                //For example, here when we find a new tracked Image, we create a cube, and place it at the location of the tracked image. We add the gameobject to a dictionary, using the name of the image as a key.
+                 GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                cube.transform.localScale = new Vector3(0.1f,0.1f,0.1f);
+                cube.transform.position = trackedImage.referenceImage.position;
+                cube.transform.rotation = trackedImage.referenceImage.rotation;
+                gameobjectDict.Add(trackedImage.referenceImage.name,cube);
+
                 
             }
 
             //eventArgs.removed contains all the trackedImages that were not found by the AR camera, either because it was removed from the camera's views or becuase the camera could not detect it.
              foreach (var trackedImage in eventArgs.removed)
             {
-                
+                //If we loose tracking of the image, we destroy the conrresponding cube and remove the image name's entry from the dictionary
+                Destroy(gameobjectDict[trackedImage.referenceImage.name]);
+                gameobjectDict.Remove(trackedImage.referenceImage.name);
             }
             //eventArgs.updated contains all the trackedImages which are currently being tracked, but its position and/or rotation changed
             foreach (var trackedImage in eventArgs.updated)
             {
                 //trackedImage.transform.position -> Updated Position of the tracked image in the real world 
                 //trackedImage.transform.rotation -> Updated Rotation of the tracked image in the real world 
+
+                //if tracked image moves, we move the corresponding gameobject to match it's position.
+                gameobjectDict[trackedImage.referenceImage.name].transform.position = trackedImage.transform.position;
+                gameobjectDict[trackedImage.referenceImage.name].transform.rotation = trackedImage.transform.rotation;
             }
         }
     }
