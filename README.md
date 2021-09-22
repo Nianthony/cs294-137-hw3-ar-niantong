@@ -9,7 +9,7 @@ Note that just like in HW2, your game must have an end condition and indicate to
 Create and name a new private repo and name the repo as cs294-137-hw3-YourGitID
 ### Deadline
 
-HW2 is due xxxday xx/xx/xxxx, 11:59PM. Both your code and video need to be turned in for your submission to be complete; HWs which are turned in after 11:59pm will use one of your slip days -- there are no slip minutes or slip hours.
+HW2 is due Sunday, 10/03/2021, 11:59PM. Both your code and video need to be turned in for your submission to be complete; HWs which are turned in after 11:59pm will use one of your slip days -- there are no slip minutes or slip hours.
 
 ### Academic honesty
 Please do not post code to a public GitHub repository, even after the class is finished, since these HWs will be reused both  in the future.
@@ -498,15 +498,73 @@ In the project window, right click -> Create -> XR -> ReferenceImageLibrary
 
 ![image17.PNG](/Instructions/image17.PNG)
 
-Now select the Reference Image Library and in the inspector, use 'Add Image' to add an image that you would like to track. Select the texture and choose the image(s) that you imported.
+Now select the Reference Image Library and in the inspector, use 'Add Image' to add images that you would like to track. Select the texture and choose the image(s) that you imported.
 
-Next check 'specify size' and key in the physical size of your printed image. Note that, aspect ratio is determined based on the texture dimensions. So make sure to type in the physical measurements on the printout that corresponds to the image you uploaded. Note: cropping any unneccssary white borders on the uploaded image could help you get this right.
+Next check 'specify size' and type in the physical size of your printed image. Note that, aspect ratio is determined based on the texture dimensions. So make sure to type in the physical measurements on the printout that corresponds to the image you uploaded. Note: cropping any unneccssary white borders on the uploaded image could help you get this right.
 
 ![image18.PNG](/Instructions/image18.PNG)
 
+Now select the AR session Origin Game Object, and through the inspector, Add 'AR Tracked Image Manager' component. Drag your ReferenceImageLibrary from the project window to `SerializedLibrary' variable of the manager. This ensures that the AR application tracks the images that we have in the referece image library. Make sure to set the maximum number of moving components as the number of images that you want to track.
+
+![image19.PNG](/Instructions/image19.PNG)
+
+Now we will need a script that will help us figure out which images are currently being tracked in the scene.
+
+```C++
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.XR.ARSubsystems;
+using UnityEngine.XR.ARFoundation;
+
+    /// This component listens for images detected by the <c>XRImageTrackingSubsystem</c>
+    /// and overlays some information as well as the source Texture2D on top of the
+    /// detected image.
+    /// </summary>
+    [RequireComponent(typeof(ARTrackedImageManager))]
+    public class TrackedImageInfoManager : MonoBehaviour
+    {
+        
+
+        ARTrackedImageManager m_TrackedImageManager;
+
+        void Awake()
+        {
+            m_TrackedImageManager = GetComponent<ARTrackedImageManager>();
+        }
+
+        void OnEnable()
+        {
+            m_TrackedImageManager.trackedImagesChanged += OnTrackedImagesChanged;
+        }
+
+        void OnDisable()
+        {
+            m_TrackedImageManager.trackedImagesChanged -= OnTrackedImagesChanged;
+        }
 
 
+        void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs)
+        {
+            foreach (var trackedImage in eventArgs.added)
+            {
+                
+            }
 
+             foreach (var trackedImage in eventArgs.removed)
+            {
+                
+            }
+
+            foreach (var trackedImage in eventArgs.updated)
+            {
+
+            }
+        }
+    }
+
+```
 
 
 ## Using your game from HW2:
