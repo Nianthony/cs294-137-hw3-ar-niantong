@@ -611,7 +611,7 @@ using UnityEngine.XR.ARFoundation;
 
 In this HW, you will need to use these tracked images to add to the gameplay of games that you developed in HW2. We look for creative game interaction designs by which you will use these tracked images to add to the experience of your game and make it more enjoyable. Try to think of ways in which these tracked images can intercat with the different elements in your game. A couple of examples, include:
 
-- In a pokemon game you may track images of pokemon (cards). When a player pushes a pokemon card into the view of the camera, the corresponding pokemon would be spawned into the scene over the card. This will activate the fire arena (Charizard is a fire type pokemon). E.g. - https://www.youtube.com/watch?v=3ziNTo-BCT0&ab_channel=Fyone 
+- In a pokemon game you may track images of pokemon (cards). When a player pushes a pokemon card into the view of the camera, the corresponding pokemon would be spawned into the scene over the card. E.g. - https://www.youtube.com/watch?v=3ziNTo-BCT0&ab_channel=Fyone . If required, this may also activate the fire arena (P.S. Charizard is a fire type pokemon). 
 
 - In a battle game, you may track images of a sword. When a player brings in the image of a sword into the scene, a virtual sword will spawn at the location of the image. The player can use the virtual sword to attack virtual enemies or virtual objects in the scene. 
 
