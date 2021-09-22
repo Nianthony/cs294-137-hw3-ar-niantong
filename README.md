@@ -508,7 +508,7 @@ Now select the AR session Origin Game Object, and through the inspector, Add 'AR
 
 ![image19.PNG](/Instructions/image19.PNG)
 
-Now we will need a script that will help us figure out which images are currently being tracked in the scene.
+Now we will need a script that will help us figure out which images are currently being tracked in the scene. Below is a template script that needs to be attached to the 'AR session Origin' game object.  Note that this is only a template script, and you need to modify this to suit the needs of your game. 
 
 ```C++
 using System;
@@ -519,8 +519,7 @@ using UnityEngine.XR.ARSubsystems;
 using UnityEngine.XR.ARFoundation;
 
     /// This component listens for images detected by the <c>XRImageTrackingSubsystem</c>
-    /// and overlays some information as well as the source Texture2D on top of the
-    /// detected image.
+    /// and overlays a cube on each of the tracked image
     /// </summary>
     [RequireComponent(typeof(ARTrackedImageManager))]
     public class TrackedImageInfoManager : MonoBehaviour
@@ -531,6 +530,7 @@ using UnityEngine.XR.ARFoundation;
 
         void Awake()
         {
+            //This gets a reference to the AR Tracked Image Manager attached to the 'AR session Origin' gameobject
             m_TrackedImageManager = GetComponent<ARTrackedImageManager>();
         }
 
@@ -547,24 +547,36 @@ using UnityEngine.XR.ARFoundation;
 
         void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs)
         {
+            
+            //eventArgs.added contains all the newly trackedImages that were found this frame
             foreach (var trackedImage in eventArgs.added)
             {
+
+                //Write code here to deploy stuff whenever a new image is found in the tracking
+                //e.g. Create a new virtual object and/or attach it to the tracked image
+                //trackedImage.referenceImage.name -> Name of the tracked image
+                //trackedImage.transform.position -> Position of the tracked image in the real world 
+                //trackedImage.transform.rotation -> Rotation of the tracked image in the real world 
+
                 
             }
 
+            //eventArgs.removed contains all the trackedImages that were not found by the AR camera, either because it was removed from the camera's views or becuase the camera could not detect it.
              foreach (var trackedImage in eventArgs.removed)
             {
                 
             }
-
+            //eventArgs.updated contains all the trackedImages which are currently being tracked, but its position and/or rotation changed
             foreach (var trackedImage in eventArgs.updated)
             {
-
+                //trackedImage.transform.position -> Updated Position of the tracked image in the real world 
+                //trackedImage.transform.rotation -> Updated Rotation of the tracked image in the real world 
             }
         }
     }
 
 ```
+
 
 
 ## Using your game from HW2:
