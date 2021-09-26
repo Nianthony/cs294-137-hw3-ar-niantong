@@ -198,7 +198,7 @@ public class PlaceGameBoard : MonoBehaviour
                     // The list is sorted by distance so to get the location
                     // of the closest intersection we simply reference hits[0].
                     //var hitPose = hits[0].pose; //TO_COMMENT
-                    var hitPosition = hits[0].hitPosition; //TO_ADD
+                    var hitPosition = hits[0].pose.position; //TO_ADD
                     // Now we will activate our game board and place it at the
                     // chosen location.
                     gameBoard.SetActive(true);
