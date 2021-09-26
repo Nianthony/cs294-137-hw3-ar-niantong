@@ -580,8 +580,8 @@ public class TrackedImageInfoManager : MonoBehaviour
             //For example, here when we find a new tracked Image, we create a cube, and place it at the location of the tracked image. We add the gameobject to a dictionary, using the name of the image as a key.
                 GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cube.transform.localScale = new Vector3(0.1f,0.1f,0.1f);
-            cube.transform.position = trackedImage.referenceImage.position;
-            cube.transform.rotation = trackedImage.referenceImage.rotation;
+            cube.transform.position = trackedImage.transform.position;
+            cube.transform.rotation = trackedImage.transform.rotation;
             gameobjectDict.Add(trackedImage.referenceImage.name,cube);
 
             
