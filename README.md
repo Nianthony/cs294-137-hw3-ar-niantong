@@ -94,6 +94,7 @@ In Unity Hub create a new 3D Project.
 
 At this point you should be able to build a blank API by pressing File-> Build Settings -> Build
 
+
 ## Identifying Planar Surfaces in AR:
 
 Now you are ready to build your first AR App. The first thing we will do is create a visualizer for planar surfaces detected by your device. Later you will use these planes as locations where you can place your game board. 
@@ -129,6 +130,13 @@ You will likely need to enable developer options on your device. On your phone g
 You will need to tell your device to trust your developer certificate. On your phone go to Settings -> General -> Device Management->Your Apple ID->Trust your Apple ID
 
 Either redo “Build and Run”, or at this point you can just open the installed application on your device. If you move your device slowly around your area you should see semi-transparent planes overlaid over planar regions of the scene such as the floor, your desk, or your keyboard. Note that it may take a few seconds for planes to be detected and they will only appear in regions that have visible texture (sorry no playing AR games in the dark or on white walls). 
+
+
+### Possible Issues
+
+ - If you see a black screen: Select Edit-> Project Settings from Menu and make sure ARCore/ARKit is checked
+
+![image20.PNG](/Instructions/image20.PNG) 
 
 ## Changes from HW2:
 
