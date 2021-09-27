@@ -553,7 +553,7 @@ public class TrackedImageInfoManager : MonoBehaviour
     
 
     ARTrackedImageManager m_TrackedImageManager;
-    Dictionary<string,GameObject> gameobjectDict = new Dictionary<string,GameObject>
+    Dictionary<string,GameObject> gameobjectDict = new Dictionary<string,GameObject>();
 
     void Awake()
     {
