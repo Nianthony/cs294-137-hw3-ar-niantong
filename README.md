@@ -63,7 +63,7 @@ In Unity Hub create a new 3D Project.
 
 ### For Android users:
 * Go to Window -> Package Manager 
-    * Select Advanced -> Show Preview Packages
+    * Select Packages -> Unity registry
     * Select ARCore XR Plugin and install it.
     * Select AR Foundation and install it. 
 * Go to File -> Build Settings
@@ -77,7 +77,7 @@ In Unity Hub create a new 3D Project.
 
 ### For iOS users:
 * Go to Window -> Package Manager 
-   * Select Advanced -> Show Preview Packages
+   * Select Packages -> Unity registry
    * Select ARKit XR Plugin, ensure the version is set to 2.1.1, and install it.
    * Select AR Foundation and install it. 
 * Go to File -> Build Settings
