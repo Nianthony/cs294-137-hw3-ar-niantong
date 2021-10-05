@@ -554,7 +554,7 @@ public class TrackedImageInfoManager : MonoBehaviour
 
     ARTrackedImageManager m_TrackedImageManager;
     Dictionary<string,GameObject> gameobjectDict = new Dictionary<string,GameObject>();
-
+    private TrackingState prevTrackingState = TrackingState.None; //For newer versions of ARFoundation
     void Awake()
     {
         //This gets a reference to the AR Tracked Image Manager attached to the 'AR session Origin' gameobject
@@ -592,16 +592,19 @@ public class TrackedImageInfoManager : MonoBehaviour
             cube.transform.rotation = trackedImage.transform.rotation;
             gameobjectDict.Add(trackedImage.referenceImage.name,cube);
 
-            
+            prevTrackingState = trackedImage.trackingState; //For newer versions of ARFoundation
         }
 
         //eventArgs.removed contains all the trackedImages that were not found by the AR camera, either because it was removed from the camera's views or becuase the camera could not detect it.
-            foreach (var trackedImage in eventArgs.removed)
+        foreach (var trackedImage in eventArgs.removed)
         {
             //If we loose tracking of the image, we destroy the conrresponding cube and remove the image name's entry from the dictionary
             Destroy(gameobjectDict[trackedImage.referenceImage.name]);
             gameobjectDict.Remove(trackedImage.referenceImage.name);
+           
+            prevTrackingState = trackedImage.trackingState; //For newer versions of ARFoundation
         }
+   
         //eventArgs.updated contains all the trackedImages which are currently being tracked, but its position and/or rotation changed
         foreach (var trackedImage in eventArgs.updated)
         {
@@ -611,6 +614,28 @@ public class TrackedImageInfoManager : MonoBehaviour
             //if tracked image moves, we move the corresponding gameobject to match it's position.
             gameobjectDict[trackedImage.referenceImage.name].transform.position = trackedImage.transform.position;
             gameobjectDict[trackedImage.referenceImage.name].transform.rotation = trackedImage.transform.rotation;
+  
+            //Add the Below if else code  block for newer versions of ARFoundation
+            if(prevTrackingState == TrackingState.Tracking && trackedImage.trackingState!= prevTrackingState)
+            {
+                //We lost and then regained tracking so we add cube again
+                
+                GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+               cube.transform.localScale = new Vector3(0.1f,0.1f,0.1f);
+               cube.transform.position = trackedImage.transform.position;
+               cube.transform.rotation = trackedImage.transform.rotation;
+               gameobjectDict.Add(trackedImage.referenceImage.name,cube);
+
+            }
+            else if(prevTrackingState != TrackingState.Tracking && trackedImage.trackingState != prevTrackingState)
+            {
+                //We lost tracking so we remove the cube
+                Destroy(gameobjectDict[trackedImage.referenceImage.name]);
+                gameobjectDict.Remove(trackedImage.referenceImage.name);
+            }
+   
+            prevTrackingState = trackedImage.trackingState; //For newer versions of ARFoundation
+            
         }
     }
 }
