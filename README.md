@@ -586,7 +586,7 @@ public class TrackedImageInfoManager : MonoBehaviour
             //trackedImage.transform.rotation -> Rotation of the tracked image in the real world 
 
             //For example, here when we find a new tracked Image, we create a cube, and place it at the location of the tracked image. We add the gameobject to a dictionary, using the name of the image as a key.
-                GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
             cube.transform.localScale = new Vector3(0.1f,0.1f,0.1f);
             cube.transform.position = trackedImage.transform.position;
             cube.transform.rotation = trackedImage.transform.rotation;
@@ -615,7 +615,7 @@ public class TrackedImageInfoManager : MonoBehaviour
             gameobjectDict[trackedImage.referenceImage.name].transform.position = trackedImage.transform.position;
             gameobjectDict[trackedImage.referenceImage.name].transform.rotation = trackedImage.transform.rotation;
   
-            //Add the Below if else code  block for newer versions of ARFoundation
+            //Add the Below if else code  block For newer versions of ARFoundation
             if(prevTrackingState == TrackingState.Tracking && trackedImage.trackingState!= prevTrackingState)
             {
                 //We lost and then regained tracking so we add cube again
