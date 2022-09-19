@@ -9,7 +9,7 @@ Note that just like in HW2, your game must have an end condition and indicate to
 Create and name a new private repo and name the repo as cs294-137-hw3-YourGitID
 ### Deadline
 
-HW2 is due Sunday, 10/03/2021, 11:59PM. Both your code and video need to be turned in for your submission to be complete; HWs which are turned in after 11:59pm will use one of your slip days -- there are no slip minutes or slip hours.
+HW3 is due Friday, 10/14/2022, 11:59PM. Both your code and video need to be turned in for your submission to be complete; HWs which are turned in after 11:59pm will use one of your slip days -- there are no slip minutes or slip hours.
 
 ### Academic honesty
 Please do not post code to a public GitHub repository, even after the class is finished, since these HWs will be reused both  in the future.
@@ -29,8 +29,8 @@ For Android devices you will likely want to install a 3rd party screen recorder.
 You will also need to push your project folder to your your private repo. 
 Add the following github IDs so that we can access these:
 
-bjo3rn
-tkbala
+bjo3rn 
+o0WeiyuFeng0o
 
 **Submit a link to your repo and your video on bCourses.** Do not modify your repo after the submission deadline.
 
