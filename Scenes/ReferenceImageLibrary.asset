@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
+  m_Name: ReferenceImageLibrary
+  m_EditorClassIdentifier: 
+  m_GuidLow: 5248271920521952635
+  m_GuidHigh: 17985483656496833945
+  m_DataStore:
+    m_Storage: []
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 5422421457969042725
+      m_GuidHigh: 16371710873948701089
+    m_SerializedTextureGuid:
+      m_GuidLow: 15759271728657814843
+      m_GuidHigh: 10993221350113556872
+    m_Size: {x: 0.1813324, y: 0.22}
+    m_SpecifySize: 1
+    m_Name: attach surface
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4653401669256334316
+      m_GuidHigh: 2641697001862109607
+    m_SerializedTextureGuid:
+      m_GuidLow: 937908853002866578
+      m_GuidHigh: 181832586642447656
+    m_Size: {x: 0.182102, y: 0.22}
+    m_SpecifySize: 1
+    m_Name: attach surface 3
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5543207123669227820
+      m_GuidHigh: 64512131135738001
+    m_SerializedTextureGuid:
+      m_GuidLow: 8242822880058075045
+      m_GuidHigh: 17607857896240403546
+    m_Size: {x: 0.17168365, y: 0.22}
+    m_SpecifySize: 1
+    m_Name: attach surface 2
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5063740005106440228
+      m_GuidHigh: 13337157457652048822
+    m_SerializedTextureGuid:
+      m_GuidLow: 6387346110446779781
+      m_GuidHigh: 14663990299014224136
+    m_Size: {x: 0.17964716, y: 0.22}
+    m_SpecifySize: 1
+    m_Name: attach surface 1
+    m_Texture: {fileID: 0}
