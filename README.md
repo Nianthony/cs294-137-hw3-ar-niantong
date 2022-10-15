@@ -1,4 +1,4 @@
-# HW2: Building Unity Game in Simulated AR
+# HW3 Part 1: A Real AR Game, with Image Tracking
 
 In this homework, I build a simple AR Game, Whack a Mole. Here is the reference, features of my game, and google drive link for my unity package and introduction video.  
 
@@ -12,7 +12,7 @@ I used the same prefabs (moles, trees, and stones), font, audio, and part of the
 
 Here is my demo video
 
-https://drive.google.com/file/d/1Nv3oJVbflsIZ2Eo6SO_6ApA6DIG7MSCU/view?usp=sharing
+https://drive.google.com/file/d/1hAv4KVm8R9pzj6jfY7BMVK_JilvQ6gq4/view?usp=sharing
 
 ## Game changes
 
