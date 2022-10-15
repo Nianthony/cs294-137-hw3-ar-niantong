@@ -72,6 +72,8 @@ public class ARFollowTarget : MonoBehaviour
 }
 
 ```
-
+![overview.png](https://github.com/Nianthony/cs294-137-hw3-ar-niantong/blob/main/AR%20Documentation/overview.png)
 
 For the image tracking part, I tracked a real green cloth, where the game board will be generated when detecting the cloth. The android camera was not so precise, I took 4 photos of the same cloth in different lighting and environment to make sure it can recognize my cloth. 
+
+![reference.png](https://github.com/Nianthony/cs294-137-hw3-ar-niantong/blob/main/AR%20Documentation/reference.png)
